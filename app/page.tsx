@@ -9,7 +9,7 @@ type Project = {
   credit: string;
   description: string;
   link: string;
-  tone: string;
+  thumbnail: string;
 };
 
 const projects: Project[] = [
@@ -20,16 +20,16 @@ const projects: Project[] = [
     credit: "BIGD, BRAC University",
     description: "A short film about education, identity and the quiet courage to imagine a different future.",
     link: "https://bigd.bracu.ac.bd/publications/anjali-a-dalit-girls-story-of-resilience/",
-    tone: "anjali",
+    thumbnail: "/projects/anjali.png",
   },
   {
-    title: "Stories of In/Subfertility",
-    year: "2021",
-    format: "Documentary collection",
-    credit: "Share-Net International & IPPF",
-    description: "Stories that make room for the complexity and private weight of fertility and reproductive health.",
-    link: "https://drive.google.com/drive/folders/1Uy_KSse27yWy1GjnFVFm8lbV_9d5PI5J?usp=sharing",
-    tone: "stories",
+    title: "Breast Cancer Awareness Month",
+    year: "2018",
+    format: "Visual awareness campaign",
+    credit: "Share-Net Bangladesh",
+    description: "A visual campaign that brings an important and often private health conversation into the open.",
+    link: "https://www.share-netbangladesh.org/breast-cancer-awareness-month-2018/",
+    thumbnail: "/projects/breast-cancer.png",
   },
   {
     title: "Free Spirits",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     credit: "NTR / RedOrange",
     description: "Character-led films about people choosing their own way, made for European television.",
     link: "https://www.ntr.nl/Free-Spirits/371/detail/Free-Spirits/VPWON_1304281",
-    tone: "spirits",
+    thumbnail: "/projects/free-spirits.jpg",
   },
   {
     title: "DCDD: What We Do",
@@ -47,7 +47,7 @@ const projects: Project[] = [
     credit: "Dutch Coalition for Disability and Development",
     description: "An accessible film about disability-inclusive development and collective action.",
     link: "https://youtu.be/EgHY3Fy9cuQ",
-    tone: "dcdd",
+    thumbnail: "/projects/dcdd.jpg",
   },
   {
     title: "Korim, the Micro-Merchant",
@@ -56,7 +56,7 @@ const projects: Project[] = [
     credit: "UN Capital Development Fund",
     description: "A small, human story about financial inclusion and the everyday work of a micro-merchant.",
     link: "https://youtu.be/jiMt_LhPgu8",
-    tone: "korim",
+    thumbnail: "/projects/korim.jpg",
   },
   {
     title: "Building Social Cohesion",
@@ -65,7 +65,7 @@ const projects: Project[] = [
     credit: "BRAC & Bangladesh Police",
     description: "A public-interest film about trust, community and the things people can build together.",
     link: "https://youtu.be/_ZcruDhEuOg",
-    tone: "cohesion",
+    thumbnail: "/projects/social-cohesion.jpg",
   },
   {
     title: "Child Marriage Prevention",
@@ -74,7 +74,7 @@ const projects: Project[] = [
     credit: "RedOrange",
     description: "A direct and considered message about the need to keep the conversation on child marriage alive.",
     link: "https://youtu.be/EpRwVPGYNxM",
-    tone: "prevention",
+    thumbnail: "/projects/child-marriage.jpg",
   },
 ];
 
@@ -148,9 +148,10 @@ export default function Home() {
 
         <div ref={rail} className="project-rail" tabIndex={0} aria-label="Selected projects. Scroll horizontally to browse.">
           {projects.map((project) => (
-            <article className={`project-card ${project.tone}`} key={project.title}>
+            <article className="project-card" key={project.title}>
               <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>
                 <div className="project-image" aria-hidden="true">
+                  <img src={project.thumbnail} alt="" />
                   <span className="play">▶</span>
                   <span className="project-number">{project.year}</span>
                 </div>
