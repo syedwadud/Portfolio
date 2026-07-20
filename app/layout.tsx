@@ -9,19 +9,19 @@ export async function generateMetadata(): Promise<Metadata> {
   const imageUrl = `${protocol}://${host}/og.png`;
 
   return {
-    title: "Mohammed Wadudul Islam | Communications, Media & Strategy",
+    title: "Mohammed Wadudul Islam | Writer, Producer & Artist",
     description:
-      "An eleven-year portfolio of documentary film, communication strategy, research translation and public-interest campaigns.",
+      "Selected films, visual work and writing by Mohammed Wadudul Islam, a writer, producer and artist working in development communication.",
     openGraph: {
       title: "Mohammed Wadudul Islam",
-      description: "Stories that move people & systems.",
+      description: "Writer, producer and artist. Selected films, visual work and writing.",
       type: "website",
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: "Mohammed Wadudul Islam — Stories that move people and systems" }],
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: "Mohammed Wadudul Islam — Writer, Producer, Artist" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Mohammed Wadudul Islam",
-      description: "Stories that move people & systems.",
+      description: "Writer, producer and artist. Selected films, visual work and writing.",
       images: [imageUrl],
     },
   };
