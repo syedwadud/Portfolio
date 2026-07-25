@@ -30,7 +30,7 @@
       <header class="topbar">
         <a class="identity" href="#top" aria-label="Mohammed Wadudul Islam, home">
           <span>Mohammed Wadudul Islam</span>
-          <small>Writer · Producer · Artist · Musician</small>
+          <small>Writer · Producer · Artist</small>
         </a>
 
         <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation">
@@ -66,7 +66,7 @@
         <div class="hero-grid">
           <div class="hero-heading">
             <p class="eyebrow">A portfolio of selected work</p>
-            <h1 id="hero-title">Writer, producer <em>&amp; artist.</em></h1>
+            <h1 id="hero-title"><span class="hero-title-line">Writer, producer</span><em class="hero-title-line">&amp; artist.</em></h1>
           </div>
           <div class="hero-copy">
             <p class="hero-kicker">Stories with purpose</p>
@@ -348,8 +348,34 @@
           <h2 id="contact-title">If there is a story to talk about, I would be glad to hear from you.</h2>
         </div>
         <div class="contact-actions">
-          <a class="solid-button" href="mailto:wadud.exe@gmail.com">wadud.exe@gmail.com <span>↗</span></a>
-          <a class="text-button" href="https://www.linkedin.com/in/syed-wadud/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <form class="contact-form" action="https://formsubmit.co/wadud.exe@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New portfolio outreach">
+            <input type="hidden" name="_template" value="table">
+            <label class="contact-honeypot" aria-hidden="true">
+              <span>Leave this field empty</span>
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </label>
+            <div class="contact-form-fields">
+              <label class="contact-field">
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="80" required>
+              </label>
+              <label class="contact-field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" maxlength="120" required>
+              </label>
+            </div>
+            <label class="contact-field">
+              <span>Outreach</span>
+              <textarea name="message" rows="4" maxlength="1200" placeholder="Tell me briefly what you would like to discuss." required></textarea>
+            </label>
+            <button class="contact-submit" type="submit">Send outreach <span aria-hidden="true">↗</span></button>
+            <p class="contact-form-note">Your message will be sent to wadud.exe@gmail.com.</p>
+          </form>
+          <div class="contact-secondary">
+            <a class="text-button" href="mailto:wadud.exe@gmail.com">Email directly ↗</a>
+            <a class="text-button" href="https://www.linkedin.com/in/syed-wadud/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
         </div>
       </section>
 
