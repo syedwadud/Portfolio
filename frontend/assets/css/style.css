@@ -472,7 +472,7 @@ h1 em {
 
 .project-image {
   position: relative;
-  height: 190px;
+  aspect-ratio: 16 / 7;
   overflow: hidden;
   background: var(--ink);
 }
@@ -490,8 +490,20 @@ h1 em {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: var(--thumbnail-position, center);
   transition: transform 420ms ease;
+}
+
+.project-image--anjali {
+  --thumbnail-position: center;
+}
+
+.project-image--breast-cancer {
+  --thumbnail-position: center 24%;
+}
+
+.project-image--free-spirits {
+  --thumbnail-position: 62% center;
 }
 
 .project-card:hover .project-image img {
