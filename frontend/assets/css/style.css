@@ -1293,30 +1293,124 @@ h1 em {
 .contact-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 17px;
+  align-items: stretch;
+  gap: 20px;
 }
 
-.solid-button {
+.contact-form {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  padding: 26px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.contact-form-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.contact-field > span {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0 11px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: border-color 180ms ease;
+}
+
+.contact-field textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.72;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--coral);
+  outline: 0;
+}
+
+.contact-field input:focus-visible,
+.contact-field textarea:focus-visible {
+  box-shadow: 0 2px 0 var(--coral);
+}
+
+.contact-submit {
   display: inline-flex;
   justify-content: space-between;
-  gap: 42px;
-  min-width: 265px;
-  padding: 14px 17px;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 16px;
+  border: 0;
   color: var(--paper);
   background: var(--ink);
+  cursor: pointer;
   font-size: 12px;
   font-weight: 700;
   transition: background-color 180ms ease, transform 180ms ease;
 }
 
-.solid-button:hover {
+.contact-submit:hover {
   background: var(--coral);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-.solid-button span {
+.contact-submit span {
   font-size: 17px;
+}
+
+.contact-form-note {
+  margin: -4px 0 0;
+  color: var(--ink-soft);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
 }
 
 .text-button {
@@ -1590,6 +1684,14 @@ footer a {
   .about-grid h2,
   .contact-section h2 {
     font-size: 38px;
+  }
+
+  .contact-form {
+    padding: 22px 20px;
+  }
+
+  .contact-form-fields {
+    grid-template-columns: 1fr;
   }
 
   .spotify-toggle {
