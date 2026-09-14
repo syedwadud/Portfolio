@@ -3,10 +3,6 @@ name: Deploy portfolio to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'frontend/index.html'
-      - 'frontend/assets/**'
-      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -25,20 +21,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v6
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Prepare static site
+      - uses: actions/checkout@v6
+
+      - uses: actions/configure-pages@v5
+
+      - name: Prepare website
         run: |
           mkdir -p _site
           cp frontend/index.html _site/index.html
           cp -R frontend/assets _site/assets
           touch _site/.nojekyll
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v4
+
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
-      - name: Deploy site
+
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
