@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="sky" x2="1" y2="1"><stop stop-color="#dce8f3"/><stop offset=".5" stop-color="#f2eee4"/><stop offset="1" stop-color="#ead5c9"/></linearGradient><filter id="soft"><feGaussianBlur stdDeviation="65"/></filter><pattern id="lines" width="140" height="100" patternUnits="userSpaceOnUse"><path d="M0 99H140M69 0V99" stroke="#916e58" opacity=".055" fill="none"/></pattern></defs>
+<path fill="url(#sky)" d="M0 0h1800v1100H0z"/><g filter="url(#soft)" opacity=".38"><ellipse cx="1650" cy="980" rx="500" ry="420" fill="#b47b63"/><ellipse cx="1450" cy="200" rx="480" ry="300" fill="#a8c5de"/><ellipse cx="850" cy="1200" rx="430" ry="220" fill="#99a48a"/></g><path fill="url(#lines)" d="M0 0h1800v1100H0z"/>
+</svg>
