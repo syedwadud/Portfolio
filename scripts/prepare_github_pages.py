@@ -2,11 +2,27 @@
 
 from pathlib import Path
 import shutil
+import re
 
 
 SOURCE = Path("published-portfolio/dist")
 DEST = Path("_site")
 PREFIX = "/Portfolio"
+
+
+SRCSET_ATTRIBUTE = re.compile(r"(?P<prefix>\bsrcset\s*=\s*['\"])(?P<value>[^'\"]*)(?P<suffix>['\"])", re.IGNORECASE)
+
+
+def rewrite_srcset(match: re.Match[str]) -> str:
+    """Prefix each root-relative responsive image candidate for project hosting."""
+    candidates = []
+    for candidate in match.group("value").split(","):
+        parts = candidate.strip().split(None, 1)
+        if parts and parts[0].startswith("/") and not parts[0].startswith("//"):
+            parts[0] = f"{PREFIX}{parts[0]}"
+        candidates.append(" ".join(parts))
+    value = ", ".join(candidates)
+    return f'{match.group("prefix")}{value}{match.group("suffix")}'
 
 
 def main() -> None:
@@ -37,6 +53,7 @@ def main() -> None:
         text = path.read_text(encoding="utf-8")
         for old, new in replacements:
             text = text.replace(old, new)
+        text = SRCSET_ATTRIBUTE.sub(rewrite_srcset, text)
         for attribute in ("href", "src", "action"):
             text = text.replace(f'{attribute}="{PREFIX}//', f'{attribute}="//')
             text = text.replace(f"{attribute}='{PREFIX}//", f"{attribute}='//")
